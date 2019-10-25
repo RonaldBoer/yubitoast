@@ -67,7 +67,7 @@ func showNotification(msg string, usePopup bool) {
 	switch {
 	case runtime.GOOS == "darwin" && usePopup:
 		// arg := fmt.Sprintf("tell app \"System Events\" to display dialog \"%s\" buttons \"Close\" with title \"%s\" with icon caution giving up after (%d)", appName, msg, popupTimeout)
-		arg := fmt.Sprintf("tell application (path to frontmost application as text) to display dialog \"%s\" buttons {\"Close\"} with title \"%s\" with icon caution giving up after (%d)", msg, popupTimeout)
+		arg := fmt.Sprintf("tell application (path to frontmost application as text) to display dialog \"%s\" buttons {\"Close\"} with title \"%s\" with icon caution giving up after (%d)", appName, msg, popupTimeout)
 		cmd := exec.Command("osascript", "-e", arg)
 		err := cmd.Run()
 		if err != nil {
